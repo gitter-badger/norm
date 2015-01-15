@@ -30,22 +30,20 @@
         <h1>
 <a id="norm--not-root-package-manager" class="anchor" href="#norm--not-root-package-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>NORM = NOt Root (package) Manager</h1>
 
-<p>You don't need root to install anything.</p>
+<p>Easy way to install software when you don't have root and can only write to your home directory. </p>
 
 <p>Example:</p>
 
-<pre><code>norm install gcc
-</code></pre>
+<div class="highlight highlight-bash"><pre>norm install gcc</pre></div>
 
-<p>This installs gcc to $HOME/norm/ directory by downloading source and compiling gcc and it's dependencies.</p>
+<p>This installs gcc to <code>$HOME/norm/bin/gcc</code> by downloading source and compiling gcc and it's dependencies. After that, add $HOME/norm/bin to your PATH and you can use your shiny new gcc.</p>
 
-<h1></h1>
+<p>You'll be surprised how much software you can install this way.</p>
 
-<p>The main goal of this package manager is to provide easy way to install software when you don't have root privileges and write access anywhere but your home directory. You'll be surprised how much software you can install this way.</p>
+<hr>
 
-<h1></h1>
-
-<p>Adding new package:</p>
+<h2>
+<a id="adding-new-package" class="anchor" href="#adding-new-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding new package</h2>
 
 <ul>
 <li>Create a file in <code>packages</code> directory.</li>
@@ -54,9 +52,22 @@
 <li>Add <code>do_unpack_compile</code> line.</li>
 </ul>
 
-<p>For examples, see existing packages.</p>
+<p>Example:</p>
 
-<p>Since the variability of systems the code will be built on is big, please make sure build process doesn't depend on anything but system's gcc/binutils and system's glibc. Every other dependency should be brought with you.</p>
+<div class="highlight highlight-bash"><pre><span class="pl-c">#!/usr/bin/env bash</span>
+fetch_source http://ftpmirror.gnu.org/tar/tar-1.28.tar.gz cd30a13bbfefb54b17e039be7c43d2592dd3d5d0
+
+depends_on libacl libattr
+
+do_unpack_compile tar-1.28 tar-1.28.tar.gz</pre></div>
+
+<p>For more examples, see existing packages.</p>
+
+<hr>
+
+<p>Since the variability of systems the code will be built on is big, please try to bring every dependency with the package, except for glibc, gcc and binutils.</p>
+
+<p>Alternatively, don't build with rarely used features (like kerberos in openssh or ldap in curl).</p>
       </section>
     </div>
     <footer>
