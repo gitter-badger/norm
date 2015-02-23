@@ -38,6 +38,8 @@
 
 <p>If you don't have root, it's very likely that software you want to use isn't the latest version. And, in some cases, downloading binaries won't help — your libc might be too old to run them.</p>
 
+<p>After installation, add <code>$HOME/norm/bin</code> in front of your PATH to run your own versions of programs you've just installed.</p>
+
 <h2>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
 
@@ -55,7 +57,7 @@
 <li>
 <a href="https://github.com/hmage/norm/tree/master/packages/openssh"><code>norm install openssh</code></a> — your system openssh client might not support ECDSA and ed25519, which is increasingly problematic as the world around you moves away from DSA and RSA.</li>
 <li>
-<a href="https://github.com/hmage/norm/tree/master/packages/fontconfig"><code>norm install fontconfig</code></a> — if font rendering on your machine looks horrible, install this, set up <code>LD_LIBRARY_PATH</code> to <code>~/norm/lib</code> in bashrc (before interactive check cutoff) and restart the app.</li>
+<a href="https://github.com/hmage/norm/tree/master/packages/fontconfig"><code>norm install fontconfig</code></a> — if font rendering on your machine looks horrible, install this, set up <code>LD_LIBRARY_PATH</code> to <code>~/norm/lib</code> in bashrc (before interactive check cutoff) and restart X session.</li>
 <li>
 <a href="https://github.com/hmage/norm/tree/master/packages/virtual/forchrome"><code>norm install virtual/forchrome</code></a> — You want a shiny new chrome and don't have root? First, install this, then set up <code>LD_LIBRARY_PATH</code> like above, then download chrome binary from official site and run <code>./chrome —no-sandbox</code>. Voila, you have latest chrome with latest flash.</li>
 </ul>
