@@ -53,7 +53,7 @@
 
 <div class="highlight highlight-bash"><pre>git clone https://github.com/hmage/norm <span class="pl-k">~</span>/norm
 <span class="pl-c1">.</span> <span class="pl-k">~</span>/norm/.bashrc
-norm install gcc</pre></div>
+norm install gcc-5.1</pre></div>
 
 <p>After everything is done, you will have gcc 5.1 in <code>~/norm</code> with all it's dependencies, like this:</p>
 
@@ -68,9 +68,9 @@ norm install gcc</pre></div>
 
 <ul>
 <li>
-<a href="packages/gcc"><code>norm install gcc</code></a> — downloads, compiles and installs gcc 5.1. Great way to try out new compiler.</li>
+<a href="packages/gcc"><code>norm install gcc</code></a> — downloads, compiles and installs gcc 4.9.2. Great way to try out latest stable compiler.</li>
 <li>
-<a href="packages/ffmpeg"><code>norm install ffmpeg</code></a> — if you're on Debian wheezy, then your ffmpeg is <em>very</em> outdated. This will gets you the newest ffmpeg with support for x264, x265, webm, opus and AAC.</li>
+<a href="packages/ffmpeg"><code>norm install ffmpeg</code></a> — if you're on Ubuntu or Debian, then your ffmpeg can be either <em>very</em> outdated or not present at all. This will get you the newest ffmpeg with support for x264, x265, webm, opus and AAC.</li>
 <li>
 <a href="packages/git"><code>norm install git</code></a> — similarly, your system copy of git might not support new features like push to deploy, reference cloning and shallow cloning.</li>
 <li>
