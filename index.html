@@ -20,20 +20,12 @@
 
           <h1 id="project_title">NORM</h1>
           <h2 id="project_tagline">Rootless build manager</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/hmage/norm/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/hmage/norm/tarball/master">Download this project as a tar.gz file</a>
-            </section>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="norm" class="anchor" href="#norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Norm</h1>
-
 <p>Don't have root? Not a problem — <code>norm</code> will install stuff rootlessly into your home directory.</p>
 
 <p>All you need is a working compiler.</p>
@@ -58,19 +50,19 @@ norm install gcc-5.1</pre></div>
 
 <ul>
 <li>
-<a href="packages/gcc"><code>norm install gcc</code></a> — downloads, compiles and installs gcc 4.9.2. Great way to try out latest stable compiler.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/gcc"><code>norm install gcc</code></a> — downloads, compiles and installs gcc 4.9.2. Great way to try out latest stable compiler.</li>
 <li>
-<a href="packages/ffmpeg"><code>norm install ffmpeg</code></a> — if you're on Ubuntu or Debian, then your ffmpeg can be either <em>very</em> outdated or not present at all. This will get you the newest ffmpeg with support for x264, x265, webm, opus and AAC.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/ffmpeg"><code>norm install ffmpeg</code></a> — if you're on Ubuntu or Debian, then your ffmpeg can be either <em>very</em> outdated or not present at all. This will get you the newest ffmpeg with support for x264, x265, webm, opus and AAC.</li>
 <li>
-<a href="packages/git"><code>norm install git</code></a> — similarly, your system copy of git might not support new features like push to deploy, reference cloning and shallow cloning.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/git"><code>norm install git</code></a> — similarly, your system copy of git might not support new features like push to deploy, reference cloning and shallow cloning.</li>
 <li>
-<a href="packages/dovecot"><code>norm install dovecot</code></a> — you don't need root to spin up your own IMAP server, either. Change the listening port to something higher than 1024, set up virtual accounts and you're good to go.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/dovecot"><code>norm install dovecot</code></a> — you don't need root to spin up your own IMAP server, either. Change the listening port to something higher than 1024, set up virtual accounts and you're good to go.</li>
 <li>
-<a href="packages/mc"><code>norm install mc</code></a> — latest midnight commander is much nicer than it was a few years ago, don't be stuck in the past.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/mc"><code>norm install mc</code></a> — latest midnight commander is much nicer than it was a few years ago, don't be stuck in the past.</li>
 <li>
-<a href="packages/openssh"><code>norm install openssh</code></a> — your system openssh client might not support ECDSA and ed25519, which is increasingly problematic as the world around you moves away from DSA and RSA.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/openssh"><code>norm install openssh</code></a> — your system openssh client might not support ECDSA and ed25519, which is increasingly problematic as the world around you moves away from DSA and RSA.</li>
 <li>
-<a href="packages/fontconfig"><code>norm install fontconfig</code></a> — if font rendering on your machine looks horrible, install this, set up <code>LD_LIBRARY_PATH</code> to <code>~/norm/lib</code> in your <code>.bashrc</code> (before interactive check cutoff) and restart X session.</li>
+<a href="https://github.com/hmage/norm/blob/master/packages/fontconfig"><code>norm install fontconfig</code></a> — if font rendering on your machine looks horrible, install this, set up <code>LD_LIBRARY_PATH</code> to <code>~/norm/lib</code> in your <code>.bashrc</code> (before interactive check cutoff) and restart X session.</li>
 </ul>
 
 <h2>
@@ -91,7 +83,7 @@ norm install gcc-5.1</pre></div>
 <h2>
 <a id="formulas" class="anchor" href="#formulas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formulas</h2>
 
-<p><code>norm</code> formulas are bash scripts, here's a pretty <a href="packages/tar">minimal example</a>:</p>
+<p><code>norm</code> formulas are bash scripts, here's a pretty <a href="https://github.com/hmage/norm/blob/master/packages/tar">minimal example</a>:</p>
 
 <div class="highlight highlight-bash"><pre><span class="pl-c">#!/bin/bash</span>
 depends_on libacl libattr
@@ -110,18 +102,18 @@ do_unpack_compile</pre></div>
 <code>do_unpack_compile</code> — unpacks the source code, runs <code>configure</code>, <code>make</code> and <code>make install</code>.</li>
 </ul>
 
-<p>If software uses autotools to configure itself, no other bash functions are needed to successfully compile. There are <a href="norm_common.functions">other functions</a> in case you need to do more, their names and comments should be self explanatory.</p>
+<p>If software uses autotools to configure itself, no other bash functions are needed to successfully compile. There are <a href="https://github.com/hmage/norm/blob/master/norm_common.functions">other functions</a> in case you need to do more, their names and comments should be self explanatory.</p>
 
-<p>To see a complex example, you can take a look at <a href="packages/gcc">how gcc is built</a> with in-tree compilation of it's dependencies.</p>
+<p>To see a complex example, you can take a look at <a href="https://github.com/hmage/norm/blob/master/packages/gcc">how gcc is built</a> with in-tree compilation of it's dependencies.</p>
 
 <h2>
 <a id="adding-new-formulas" class="anchor" href="#adding-new-formulas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding new formulas</h2>
 
-<p>If you want some formula to be added to <code>norm</code>, you can either let me know by <a href="https://github.com/hmage/norm/issues">opening an issue</a> telling me that you'd like to see X or Y added to norm.</p>
+<p>If you want some formula to be added to <code>norm</code>, you can either let me know by <a href="https://github.com/hmage/norm/blob/master/issues">opening an issue</a> telling me that you'd like to see X or Y added to norm.</p>
 
 <p><a href="mailto:hmage@hmage.net">Patches welcome</a>.</p>
 
-<p>You can also, of course, fork the source, add the package yourself and then <a href="https://github.com/hmage/norm/compare">open a pull request here</a>.</p>
+<p>You can also, of course, fork the source, add the package yourself and then <a href="https://github.com/hmage/norm/blob/master/compare">open a pull request here</a>.</p>
       </section>
     </div>
 
