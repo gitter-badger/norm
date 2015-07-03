@@ -1,50 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>NORM by hmage</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="NORM : Rootless build manager">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>NORM</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>NORM</h1>
-        <p>You don’t need root to install anything</p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hmage/norm">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">NORM</h1>
+          <h2 id="project_tagline">Rootless build manager</h2>
 
-        <a href="https://github.com/hmage/norm" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/hmage/norm/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/hmage/norm/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hmage/norm/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hmage/norm/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a id="norm" class="anchor" href="#norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Norm</h1>
 
-<p>Don't have root?</p>
-
-<p>Not a problem — <code>norm</code> installs stuff you need that your sysadmin didn't.</p>
+<p>Don't have root? Not a problem — <code>norm</code> will install stuff rootlessly into your home directory.</p>
 
 <p>All you need is a working compiler.</p>
 
@@ -86,9 +76,9 @@ norm install gcc-5.1</pre></div>
 <h2>
 <a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
 
-<p><code>norm</code> installs packages to your home directory, leaving system-wide programs intact and untouched — you probably don't have permissions to change them anyway. By default, install prefix is <code>~/norm</code>, but you can change that. See output of <code>norm --help</code>.</p>
+<p><code>norm</code> installs formulas to your home directory, leaving system-wide programs intact and untouched. By default, install prefix is <code>~/norm.$MACHTYPE.$GLIBC_VERSION</code>, but you can change that. See output of <code>norm --help</code>.</p>
 
-<p>The compiled binaries are not for distribution — they won't work on any other location or another machine (because most programs hardcode their paths during compilation and add checks to glibc version used for building).</p>
+<p>The compiled binaries will not work properly on older version of glibc or in another location, they also might hardcode the user ID or name they were built with, so please treat them as your own personal builds (which they are).</p>
 
 <p>Since <code>norm</code> uses <code>curl</code> to download source code, it supports proxies. Just set up appropriate environment variables if you already haven't done so, like this:</p>
 
@@ -96,12 +86,12 @@ norm install gcc-5.1</pre></div>
 <span class="pl-k">export</span> https_proxy=<span class="pl-smi">$http_proxy</span>
 <span class="pl-k">export</span> ftp_proxy=<span class="pl-smi">$http_proxy</span></pre></div>
 
-<p>Replace the IP address and port with appropriate values for your proxy. You can add this to your <code>.bashrc</code> if you haven't done so.</p>
+<p>Replace the IP address and port number with appropriate values for your proxy. You can add this to your <code>.bashrc</code> if you haven't done so.</p>
 
 <h2>
-<a id="packages" class="anchor" href="#packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packages</h2>
+<a id="formulas" class="anchor" href="#formulas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formulas</h2>
 
-<p><code>norm</code> packages are bash scripts, <a href="packages/tar">example</a>:</p>
+<p><code>norm</code> formulas are bash scripts, here's a pretty <a href="packages/tar">minimal example</a>:</p>
 
 <div class="highlight highlight-bash"><pre><span class="pl-c">#!/bin/bash</span>
 depends_on libacl libattr
@@ -109,32 +99,40 @@ depends_on libacl libattr
 fetch_source http://ftpmirror.gnu.org/tar/tar-1.28.tar.gz cd30a13bbfefb54b17e039be7c43d2592dd3d5d0
 do_unpack_compile</pre></div>
 
-<p>This particular packages uses only commands that are specific to <code>norm</code>:</p>
+<p>To simplify these formulas, <code>norm</code> provides functions that reduce number of lines required to build most software:</p>
 
 <ul>
 <li>
-<code>depends_on</code> — compiles the listed packages first.</li>
+<code>depends_on</code> — does the listed formulas.</li>
 <li>
 <code>fetch_source</code> — downloads the source and verifies SHA1 checksum.</li>
 <li>
 <code>do_unpack_compile</code> — unpacks the source code, runs <code>configure</code>, <code>make</code> and <code>make install</code>.</li>
 </ul>
 
-<p>If software uses autotools to configure itself, no other bash functions are needed to successfully compile. <a href="norm_common.functions">Other functions</a> should be self explanatory.</p>
+<p>If software uses autotools to configure itself, no other bash functions are needed to successfully compile. There are <a href="norm_common.functions">other functions</a> in case you need to do more, their names and comments should be self explanatory.</p>
 
-<p>To see a more complex example, you can take a look at <a href="packages/gcc">how gcc is built</a>.</p>
+<p>To see a complex example, you can take a look at <a href="packages/gcc">how gcc is built</a> with in-tree compilation of it's dependencies.</p>
 
 <h2>
-<a id="adding-new-packages" class="anchor" href="#adding-new-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding new packages</h2>
+<a id="adding-new-formulas" class="anchor" href="#adding-new-formulas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding new formulas</h2>
 
-<p>If you want some package to be added to <code>norm</code>, you can either let me know by <a href="https://github.com/hmage/norm/issues">opening an issue</a> or you can do it yourself and then <a href="https://github.com/hmage/norm/compare">open a pull request</a>.</p>
+<p>If you want some formula to be added to <code>norm</code>, you can either let me know by <a href="https://github.com/hmage/norm/issues">opening an issue</a> telling me that you'd like to see X or Y added to norm.</p>
+
+<p><a href="mailto:hmage@hmage.net">Patches welcome</a>.</p>
+
+<p>You can also, of course, fork the source, add the package yourself and then <a href="https://github.com/hmage/norm/compare">open a pull request here</a>.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/hmage">hmage</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">NORM maintained by <a href="https://github.com/hmage">hmage</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -145,6 +143,7 @@ do_unpack_compile</pre></div>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
