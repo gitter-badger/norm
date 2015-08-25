@@ -1,7 +1,13 @@
 #!/bin/bash
 
-depends_on augeas
+depends_on pkg-config
+depends_on libncurses
+depends_on cpio
+depends_on gperf
 depends_on qemu
+depends_on cdrkit # genisoimage from there
+depends_on bison
+depends_on augeas
 
 fetch_source http://libguestfs.org/download/1.28-stable/libguestfs-1.28.6.tar.gz 459e983cbbf635965ff74f6d5b605fa48580754d
 

@@ -1,12 +1,10 @@
 #!/bin/bash
 
 depends_on pkg-config
-depends_on xorg-macros
-depends_on xproto
 depends_on libx11
 depends_on libxext
 
-fetch_source http://ftp.de.debian.org/debian/pool/main/libx/libxi/libxi_1.6.1.orig.tar.gz 5a27e61f35e443114cac9a3bba046222e1fb667a
-fetch_debian http://ftp.de.debian.org/debian/pool/main/libx/libxi/libxi_1.6.1-1+deb7u1.diff.gz e197c327083e15ce0bd8c16a414be45c55a02a8e
+fetch_source http://http.debian.net/debian/pool/main/libx/libxi/libxi_1.7.4.orig.tar.gz ce67bf41bd6c2ecfe0b511edd595cf904ad736da
+fetch_debian http://http.debian.net/debian/pool/main/libx/libxi/libxi_1.7.4-1.diff.gz 5d7d1fea1efda24df3dcc7a1e225fc83b67d360a
 
 do_undebian_compile

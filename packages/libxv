@@ -1,0 +1,10 @@
+#!/bin/bash
+
+depends_on pkg-config
+depends_on libx11
+depends_on libxext
+
+fetch_source http://http.debian.net/debian/pool/main/libx/libxv/libxv_1.0.10.orig.tar.gz d56c623fa169f91f661d9a1ccdbcdaa8bb6268cb
+fetch_debian http://http.debian.net/debian/pool/main/libx/libxv/libxv_1.0.10-1.diff.gz fee4bd6bce2a3d51c9d75b9d1fbb204f367693c7
+
+do_undebian_compile

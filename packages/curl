@@ -1,6 +1,5 @@
 #!/bin/bash
 
-depends_on pkg-config
 depends_on libidn
 depends_on openssl
 

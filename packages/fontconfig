@@ -1,6 +1,5 @@
 #!/bin/bash
 
-depends_on pkg-config
 depends_on freetype
 depends_on libxml
 depends_on libexpat

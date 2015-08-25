@@ -1,6 +1,5 @@
 #!/bin/bash
 
-depends_on zlib
 depends_on openssl
 
 fetch_source http://http.debian.net/debian/pool/main/o/openssh/openssh_6.7p1.orig.tar.gz 14e5fbed710ade334d65925e080d1aaeb9c85bf6

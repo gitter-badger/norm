@@ -2,22 +2,11 @@
 
 requires_gcc 4.2
 
-depends_on autoconf automake libtool
-depends_on pkg-config
-depends_on xproto
 depends_on libdrm
 depends_on libx11
 depends_on libxext
 depends_on libxdamage
-depends_on libxfixes
-depends_on libxcb
 depends_on libxshmfence
-depends_on libxxf86vm
-depends_on libudev
-depends_on libselinux
-depends_on libexpat
-depends_on bison
-depends_on flex
 
 DISABLE_GALLIUM=
 is_without gallium && DISABLE_GALLIUM="--with-gallium-drivers="
@@ -38,9 +27,13 @@ if [ -z "$DISABLE_GALLIUM" ]; then
     fi
 fi
 
-fetch_source ftp://ftp.freedesktop.org/pub/mesa/10.5.3/mesa-10.5.3.tar.xz 16ae80abe85b29fa118e1910a224c883964ae6c0
+fetch_source ftp://ftp.freedesktop.org/pub/mesa/10.6.6/mesa-10.6.6.tar.xz 243d64853782013a20e6fecc56a6fae35f23ef6a
 
-do_unpack_compile $DISABLE_GALLIUM \
+do_unpack
+
+do_patch mesa-10.6.6-llvm_3_7-1.patch ## fix API changes introduced by libllvm 3.7
+
+do_compile $DISABLE_GALLIUM \
                   --enable-gles1 \
                   --enable-gles2 \
                   --enable-osmesa \

@@ -8,7 +8,7 @@ fetch_debian http://ftp.de.debian.org/debian/pool/main/n/netcat-openbsd/netcat-o
 
 do_undebian
 pushd_src
-do_make CFLAGS="$CPPFLAGS -O2 -g"
+do_make CFLAGS="$CPPFLAGS -O2 -g" LDFLAGS="$LDFLAGS"
 install -d $PREFIX/bin
 install -m 755 nc $PREFIX/bin/nc
 popd

@@ -1,8 +1,10 @@
 #!/bin/bash
 
-depends_on libx11 libxext
+depends_on pkg-config
+depends_on libx11
+depends_on libxext
 
-fetch_source http://ftp.de.debian.org/debian/pool/main/libx/libxxf86vm/libxxf86vm_1.1.2.orig.tar.gz 842f5d837c100e2ac8cb35feb13185cc5fb67bea
-fetch_debian http://ftp.de.debian.org/debian/pool/main/libx/libxxf86vm/libxxf86vm_1.1.2-1+deb7u1.diff.gz e4214b882df64905b309f1aa4265ac39fd07159c
+fetch_source http://http.debian.net/debian/pool/main/libx/libxxf86vm/libxxf86vm_1.1.3.orig.tar.gz a66a298471f33ba7d63bc76db14fdb3f89319a20
+fetch_debian http://http.debian.net/debian/pool/main/libx/libxxf86vm/libxxf86vm_1.1.3-1.diff.gz f7948618d1d31258295e3d2f16064cc5be296e94
 
 do_undebian_compile

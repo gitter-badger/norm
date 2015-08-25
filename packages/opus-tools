@@ -1,9 +1,7 @@
 #!/bin/bash
 
-depends_on pkg-config
 depends_on libogg
 depends_on libopus
-depends_on flac
 
 fetch_source http://downloads.xiph.org/releases/opus/opus-tools-0.1.9.tar.gz 03551ec3b206288e93a2f2bb18768a5a9e033206
 

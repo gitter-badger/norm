@@ -1,11 +1,9 @@
 #!/bin/bash
 
 depends_on pkg-config
-depends_on xorg-macros
-depends_on xproto
 depends_on libx11
 
-fetch_source http://ftp.de.debian.org/debian/pool/main/libx/libxfixes/libxfixes_5.0.orig.tar.gz 694ef9e36e4fa4e1e8fb7c129e839019f8c12e1b
-fetch_debian http://ftp.de.debian.org/debian/pool/main/libx/libxfixes/libxfixes_5.0-4+deb7u1.diff.gz 546067f6c5b05ff31cab90b6cd94fd9ddeace063
+fetch_source http://http.debian.net/debian/pool/main/libx/libxfixes/libxfixes_5.0.1.orig.tar.gz 88e9fe9c3288feb5362fe97fa7ae534f724b75e3
+fetch_debian http://http.debian.net/debian/pool/main/libx/libxfixes/libxfixes_5.0.1-2.diff.gz 117cc46dfb460fe5f750eaf46794e65bfab29f17
 
 do_undebian_compile

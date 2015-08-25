@@ -2,8 +2,12 @@
 
 ## do not add glib -- it depends on pkg-config
 
-fetch_source http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz 71853779b12f958777bffcb8ca6d849b4d3bed46
+fetch_source http://rabbit.dereferenced.org/%7Enenolod/distfiles/pkgconf-0.9.9.tar.gz 0b2de5d3f09041be75937e1e7058cd016977a06c
+#fetch_source http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz 71853779b12f958777bffcb8ca6d849b4d3bed46
 
-LN="ln -f" \
-do_unpack_compile --with-internal-glib --with-pc-path="$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig"
+do_unpack_compile
+ln -sf pkgconf "$PREFIX/bin/pkg-config"
 mkdir -p "$PREFIX"/lib/pkgconfig
+
+#LN="ln -f" \
+#do_unpack_compile --with-internal-glib --with-pc-path="$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig"

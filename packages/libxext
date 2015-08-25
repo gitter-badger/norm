@@ -1,9 +1,8 @@
 #!/bin/bash
 
 depends_on pkg-config
-depends_on xorg-macros
-depends_on xproto libx11
+depends_on libx11
 
-fetch_source http://ftp.de.debian.org/debian/pool/main/libx/libxext/libxext_1.3.1.orig.tar.gz 9dfdc22866002a35302263b8017932aac5299ea9
-fetch_debian http://ftp.de.debian.org/debian/pool/main/libx/libxext/libxext_1.3.1-2+deb7u1.diff.gz 853e55f6aa6565df3f880db056bd39834c4b7e08
+fetch_source http://http.debian.net/debian/pool/main/libx/libxext/libxext_1.3.3.orig.tar.gz 8e221b6f706c43106a1c8aebe1229d86859d1ebf
+fetch_debian http://http.debian.net/debian/pool/main/libx/libxext/libxext_1.3.3-1.diff.gz f0e63fcd5203a7a40fba222d86aea4dafa302ca7
 do_undebian_compile

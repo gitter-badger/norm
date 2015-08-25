@@ -1,8 +1,6 @@
 #!/bin/bash
 
-depends_on autoconf automake libtool
 depends_on libncurses
-depends_on libelf
 depends_on libutempter
 
 fetch_source http://security.debian.org/debian-security/pool/updates/main/s/screen/screen_4.2.1.orig.tar.gz 21eadf5f1d64120649f3390346253c6bc8a5103c
@@ -10,7 +8,6 @@ fetch_debian http://security.debian.org/debian-security/pool/updates/main/s/scre
 
 do_undebian
 pushd_src
-do_autoreconf
 sed -i 's|/usr/lib/terminfo|@prefix@/lib/terminfo|' Makefile.in ## upstream forgot about a prefix here
 popd
 do_compile

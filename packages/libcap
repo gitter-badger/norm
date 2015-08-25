@@ -1,5 +1,5 @@
 #!/bin/bash
-depends_on libattr
+
 depends_on libpam
 
 fetch_source http://ftp.de.debian.org/debian/pool/main/libc/libcap2/libcap2_2.22.orig.tar.gz 7753165ca685a0c78735fa0db25b815d9576b1fe

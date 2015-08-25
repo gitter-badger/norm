@@ -1,13 +1,11 @@
 #!/bin/bash
-depends_on pkg-config
-depends_on xorg-macros
 
 fetch_source http://ftp.de.debian.org/debian/pool/main/x/x11proto-core/x11proto-core_7.0.23.orig.tar.gz 3baf2e7e517b392b60de0a8c090866f60a37e192
 fetch_debian http://ftp.de.debian.org/debian/pool/main/x/x11proto-core/x11proto-core_7.0.23-1.diff.gz 09938c6e571108a9255e48232fd83e138ce9c316
 do_undebian_compile
 
-fetch_source http://ftp.de.debian.org/debian/pool/main/x/x11proto-input/x11proto-input_2.2.orig.tar.gz 116e11948b8fe57bd9c9ddc351f0f316fc4453f4
-fetch_debian http://ftp.de.debian.org/debian/pool/main/x/x11proto-input/x11proto-input_2.2-1.diff.gz ac9029a5d3bf274c40ddf338a7e6a32ce1431034
+fetch_source http://http.debian.net/debian/pool/main/x/x11proto-input/x11proto-input_2.3.1.orig.tar.gz e43746db7a22dbd932442a235a747c2555224be9
+fetch_debian http://http.debian.net/debian/pool/main/x/x11proto-input/x11proto-input_2.3.1-1.diff.gz d1d3de19661f5e8e4348b889afa4abb78e939951
 do_undebian_compile
 
 fetch_source http://ftp.de.debian.org/debian/pool/main/x/x11proto-kb/x11proto-kb_1.0.6.orig.tar.gz d2168250175b51cd4d4895541b688ca14ea31d10

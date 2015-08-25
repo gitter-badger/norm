@@ -1,15 +1,9 @@
 #!/bin/bash
 
-depends_on libuuid
-depends_on curl
-depends_on libpng
-depends_on libjpeg
-depends_on libasound
-depends_on pixman
-depends_on glib
-depends_on liblzo
-depends_on libnss
+depends_on pkg-config
+depends_on python
 depends_on gtk2
+depends_on pixman
 
 fetch_source http://wiki.qemu-project.org/download/qemu-2.4.0.tar.bz2 27c4651243ad885a2a3b35fe6d2532e6a7f0711e
 

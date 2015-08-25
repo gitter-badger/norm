@@ -2,16 +2,12 @@
 
 depends_on pkg-config
 
-depends_on zlib
 depends_on libreadline
 depends_on openssl
 depends_on bzip2
-depends_on libdb
-depends_on libncurses
 depends_on libexpat
 depends_on libgdbm
 depends_on sqlite3
-depends_on libffi
 
 fetch_source https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz ee5a50c5562e7448f037d35fdedc18d95c748b9e
 
@@ -32,6 +28,6 @@ pushd_src
 do_configure --enable-ipv6 --enable-unicode=ucs4 --with-system-expat --with-system-ffi \
                   --with-dbmliborder=bdb:gdbm --with-fpectl --enable-shared --with-threads
 do_make
-env - PATH="$PATH" make test EXTRATESTOPTS='--exclude test_mhlib'
+!is_without tests && env - PATH="$PATH" make test EXTRATESTOPTS='--exclude test_mhlib --exclude test_gdb'
 do_install
 popd

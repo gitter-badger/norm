@@ -1,6 +1,7 @@
 #!/bin/bash
-depends_on libgcrypt
+
 depends_on libxml
+depends_on libxext
 
 fetch_source ftp://xmlsoft.org/libxslt/libxslt-1.1.28.tar.gz 4df177de629b2653db322bfb891afa3c0d1fa221
 

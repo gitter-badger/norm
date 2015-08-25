@@ -1,8 +1,5 @@
 #!/bin/bash
 depends_on pkg-config
-depends_on autoconf
-depends_on automake
-depends_on libtool
 depends_on libpciaccess
 depends_on pthread-stubs
 
@@ -57,5 +54,4 @@ diff -urw libdrm_2.4.58.orig.tar.gz.orig/nouveau/nouveau.c libdrm_2.4.58.orig.ta
  uint32_t nouveau_debug = 0;
  
 EOF
-do_autoreconf
 do_compile

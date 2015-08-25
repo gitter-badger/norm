@@ -1,10 +1,13 @@
 #!/bin/bash
 
-depends_on pkg-config
-depends_on xproto xorg-macros
+depends_on autoconf automake libtool
+depends_on xproto
 depends_on libxcb
 depends_on xtrans
+depends_on xorg-macros
 
-fetch_source http://ftp.de.debian.org/debian/pool/main/libx/libx11/libx11_1.5.0.orig.tar.gz 7890e34641d44aec32628aa68867b97bc6abbe17
-fetch_debian http://ftp.de.debian.org/debian/pool/main/libx/libx11/libx11_1.5.0-1+deb7u1.diff.gz ff846e5086d276dfa951d71f1e49392e0a30d94d
-do_undebian_compile --disable-selective-werror
+fetch_source http://http.debian.net/debian/pool/main/libx/libx11/libx11_1.6.2.orig.tar.gz 351ae5bad88bb2b54b7f749f6096b518a3b13b29
+fetch_debian http://http.debian.net/debian/pool/main/libx/libx11/libx11_1.6.2-3.diff.gz 211933106ee61e44c98b1bed2767f10c1dc98b97
+do_undebian
+do_autoreconf
+do_compile --disable-selective-werror

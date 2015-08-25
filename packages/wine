@@ -2,28 +2,15 @@
 
 depends_on flex bison
 depends_on libx11
-depends_on freetype
-depends_on fontconfig
-depends_on gettext
-depends_on prelink
-depends_on libxrender
-depends_on libxrandr
-depends_on libxslt
-depends_on libjpeg
 depends_on libasound
-depends_on libxcursor
-depends_on libxi
-depends_on libxinerama
-depends_on libxcomposite
-depends_on libdbus
-depends_on libncurses
-depends_on libtiff
-depends_on openldap
-depends_on mesa
-depends_on libglu
-depends_on libgstreamer-plugins-base
+depends_on freetype
 
 fetch_source http://prdownloads.sourceforge.net/wine/wine-1.7.50.tar.bz2 fef9e2e54dca8fe783ece06f153a62d7a5d48ce3
 
-do_unpack_compile
+unset CONFOPTS
+if [[ $HOSTTYPE == x86_64 ]]; then
+    CONFOPTS="--enable-win64"
+    add_caveat "64-bit version of Wine will run only 64-bit windows executables."
+fi
 
+do_unpack_compile $CONFOPTS

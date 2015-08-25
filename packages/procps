@@ -2,7 +2,6 @@
 
 depends_on autoconf automake libtool
 depends_on gettext # for autoreconf
-depends_on libncurses
 
 fetch_source http://http.debian.net/debian/pool/main/p/procps/procps_3.3.9.orig.tar.xz 088c77631745fc75ee41fc29c254a4069be4869a
 fetch_debian http://http.debian.net/debian/pool/main/p/procps/procps_3.3.9-9.debian.tar.xz 3135ba90f18279521853cc60958187184a9fc523

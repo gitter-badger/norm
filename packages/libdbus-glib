@@ -1,5 +1,6 @@
 #!/bin/bash
 
+depends_on pkg-config
 depends_on glib
 depends_on libdbus
 
@@ -7,5 +8,4 @@ fetch_source http://ftp.de.debian.org/debian/pool/main/d/dbus-glib/dbus-glib_0.1
 fetch_debian http://ftp.de.debian.org/debian/pool/main/d/dbus-glib/dbus-glib_0.100.2-1.debian.tar.gz 9e370b641dac0761b2c7a6a66548dceb20ca2d76
 
 do_undebian
-do_autoreconf
 do_compile
