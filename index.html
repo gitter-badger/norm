@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="NORM : Rootless installer">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>NORM</title>
+    <meta charset="UTF-8">
+    <title>NORM by hmage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">NORM</h1>
+      <h2 class="project-tagline">Rootless manager</h2>
+      <a href="https://github.com/hmage/norm" class="btn">View on GitHub</a>
+      <a href="https://github.com/hmage/norm/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/hmage/norm/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/hmage/norm">View on GitHub</a>
-
-          <h1 id="project_title">NORM</h1>
-          <h2 id="project_tagline">Rootless installer</h2>
-
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="norm" class="anchor" href="#norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Norm</h1>
+    <section class="main-content">
+      <h1>
+<a id="norm" class="anchor" href="#norm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Norm</h1>
 
 <p>Don't have root? Not a problem — <code>norm</code> will install stuff rootlessly into your home directory.</p>
 
 <p>All you need is a working compiler.</p>
 
 <h2>
-<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h2>
+<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quickstart</h2>
 
 <div class="highlight highlight-source-shell"><pre>git clone https://github.com/hmage/norm <span class="pl-k">~</span>/norm
 <span class="pl-c1">.</span> <span class="pl-k">~</span>/norm/.bashrc
@@ -46,29 +38,29 @@ norm install ffmpeg</pre></div>
 <div class="highlight highlight-source-shell"><pre>[[ <span class="pl-k">-e</span> <span class="pl-k">~</span>/norm/.bashrc ]] <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">.</span> <span class="pl-k">~</span>/norm/.bashrc</pre></div>
 
 <h2>
-<a id="more-examples" class="anchor" href="#more-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>More examples</h2>
+<a id="more-examples" class="anchor" href="#more-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More examples</h2>
 
 <ul>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/gcc"><code>norm install gcc</code></a> — downloads, compiles and installs gcc 4.9.2. Great way to try out without touching your system.</li>
+<a href="packages/gcc"><code>norm install gcc</code></a> — downloads, compiles and installs gcc 4.9.2. Great way to try out without touching your system.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/ffmpeg"><code>norm install ffmpeg</code></a> — if you're on Ubuntu or Debian, then your ffmpeg can be either <em>very</em> outdated or not present at all. This will get you the newest ffmpeg with support for x264, x265, webm, opus and AAC.</li>
+<a href="packages/ffmpeg"><code>norm install ffmpeg</code></a> — if you're on Ubuntu or Debian, then your ffmpeg can be either <em>very</em> outdated or not present at all. This will get you the newest ffmpeg with support for x264, x265, webm, opus and AAC.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/git"><code>norm install git</code></a> — similarly, your system copy of git might not support new features like push to deploy, reference cloning and shallow cloning.</li>
+<a href="packages/git"><code>norm install git</code></a> — similarly, your system copy of git might not support new features like push to deploy, reference cloning and shallow cloning.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/dovecot"><code>norm install dovecot</code></a> — you don't need root to spin up your own IMAP server, either. Change the listening port to something higher than 1024, set up virtual accounts and you're good to go.</li>
+<a href="packages/dovecot"><code>norm install dovecot</code></a> — you don't need root to spin up your own IMAP server, either. Change the listening port to something higher than 1024, set up virtual accounts and you're good to go.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/mc"><code>norm install mc</code></a> — latest midnight commander is much nicer than it was a few years ago.</li>
+<a href="packages/mc"><code>norm install mc</code></a> — latest midnight commander is much nicer than it was a few years ago.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/openssh"><code>norm install openssh</code></a> — your system openssh client might not support ECDSA and ed25519, which is increasingly problematic as the world around you moves away from DSA and RSA.</li>
+<a href="packages/openssh"><code>norm install openssh</code></a> — your system openssh client might not support ECDSA and ed25519, which is increasingly problematic as the world around you moves away from DSA and RSA.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/aria2"><code>norm install aria2</code></a> — this is much nicer than curl or wget and can do parallel downloads.</li>
+<a href="packages/aria2"><code>norm install aria2</code></a> — this is much nicer than curl or wget and can do parallel downloads.</li>
 <li>
-<a href="https://github.com/hmage/norm/blob/master/packages/go"><code>norm install go</code></a> — you don't need root to have go language, either.</li>
+<a href="packages/go"><code>norm install go</code></a> — you don't need root to have go language, either.</li>
 </ul>
 
 <h2>
-<a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h2>
 
 <p><code>norm</code> installs formulas to your home directory, leaving system-wide programs intact and untouched. By default, install prefix is <code>~/norm.$MACHTYPE.$GLIBC_VERSION</code>, but you can change that. See output of <code>norm --help</code>.</p>
 
@@ -83,9 +75,9 @@ norm install ffmpeg</pre></div>
 <p>Replace the IP address and port number with appropriate values for your proxy. You can add this to your <code>.bashrc</code> if you haven't done so.</p>
 
 <h2>
-<a id="adding-new-formulas" class="anchor" href="#adding-new-formulas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding new formulas</h2>
+<a id="adding-new-formulas" class="anchor" href="#adding-new-formulas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding new formulas</h2>
 
-<p><code>norm</code> formulas are bash scripts, here's a pretty <a href="https://github.com/hmage/norm/blob/master/packages/tar">minimal example</a>:</p>
+<p><code>norm</code> formulas are bash scripts, here's a pretty <a href="packages/tar">minimal example</a>:</p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c">#!/bin/bash</span>
 depends_on libacl libattr
@@ -104,28 +96,26 @@ do_unpack_compile</pre></div>
 <code>do_unpack_compile</code> — unpacks the source code, runs <code>configure</code>, <code>make</code> and <code>make install</code>.</li>
 </ul>
 
-<p>If software uses autotools to configure itself, no other bash functions are needed to successfully compile. There are <a href="https://github.com/hmage/norm/blob/master/norm_common.functions">other functions</a> in case you need to do more, their names and comments should be self explanatory.</p>
+<p>If software uses autotools to configure itself, no other bash functions are needed to successfully compile. There are <a href="norm_common.functions">other functions</a> in case you need to do more, their names and comments should be self explanatory.</p>
 
-<p>To see a more complex example, take a look at <a href="https://github.com/hmage/norm/blob/master/packages/vlc">how vlc is built</a>.</p>
+<p>To see a more complex example, take a look at <a href="packages/vlc">how vlc is built</a>.</p>
 
 <h2>
-<a id="reporting-bugs" class="anchor" href="#reporting-bugs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reporting bugs</h2>
+<a id="reporting-bugs" class="anchor" href="#reporting-bugs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reporting bugs</h2>
 
 <p>See <a href="https://github.com/hmage/norm/issues">https://github.com/hmage/norm/issues</a>.</p>
 
 <p>Also, you can contact me at <a href="mailto:hmage@hmage.net">hmage@hmage.net</a>.</p>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">NORM maintained by <a href="https://github.com/hmage">hmage</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/hmage/norm">NORM</a> is maintained by <a href="https://github.com/hmage">hmage</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-              <script type="text/javascript">
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -135,7 +125,6 @@ do_unpack_compile</pre></div>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
